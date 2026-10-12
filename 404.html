@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>404 — Page Not Found | AS Studio</title>
+
+<meta name="description" content="The page you are looking for could not be found.">
+<meta name="robots" content="noindex, follow">
+
+<link rel="icon" type="image/png" href="images/favicon-512.png">
+<link rel="apple-touch-icon" href="images/favicon-512.png">
+
+<link rel="stylesheet" href="AS-Studio-New.css">
+
+<!-- ✅ FIX #3: 404 PAGE INLINE CSS -->
+<style>
+
+/* ============================================================
+   404 PAGE — COMPLETE STYLES
+============================================================ */
+
+.error-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 60px 6%;
+    position: relative;
+    overflow: hidden;
+    perspective: 1400px;
+}
+
+
+/* ---------- Animated Glow Orb Behind 404 ---------- */
+
+.error-page::before {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+        circle,
+        rgba(100, 240, 223, 0.15) 0%,
+        rgba(142, 124, 255, 0.1) 30%,
+        transparent 65%
+    );
+    filter: blur(60px);
+    animation: errorGlow 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes errorGlow {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 1;
+    }
+}
+
+
+/* ---------- Content Wrapper ---------- */
+
+.error-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    text-align: center;
+    animation: errorFloatIn 1s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes errorFloatIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px) rotateX(15deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+}
+
+
+/* ---------- Big 404 Number ---------- */
+
+.error-code {
+    font-size: clamp(120px, 22vw, 260px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -10px;
+    margin-bottom: 20px;
+
+    background: linear-gradient(
+        135deg,
+        #3de9d8 0%,
+        #8e7cff 50%,
+        #ff62ae 100%
+    );
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    animation: errorGradientShift 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 40px rgba(100, 240, 223, 0.4));
+    position: relative;
+}
+
+@keyframes errorGradientShift {
+    0%, 100% {
+        background-position: 0% center;
+    }
+    50% {
+        background-position: 100% center;
+    }
+}
+
+
+/* ---------- Title ---------- */
+
+.error-title {
+    font-family: 'Unbounded', 'Sora', 'Segoe UI', system-ui, sans-serif;
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 800;
+    color: #eef1ff;
+    margin: 0 0 22px;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+}
+
+
+/* ---------- Description ---------- */
+
+.error-text {
+    color: #8d96b3;
+    font-size: 16px;
+    line-height: 1.85;
+    max-width: 480px;
+    margin: 0 auto 40px;
+}
+
+
+/* ---------- Action Buttons ---------- */
+
+.error-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.error-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 32px;
+    border-radius: 14px;
+    font-family: 'Manrope', -apple-system, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+    transition: all .3s cubic-bezier(.2,.8,.2,1);
+    position: relative;
+    overflow: hidden;
+    min-width: 180px;
+}
+
+
+/* Primary Button */
+.error-btn.primary-btn {
+    color: #041014;
+    background: linear-gradient(135deg, #3de9d8, #8e7cff);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.45),
+        0 5px 0 #1c3f7a,
+        0 18px 30px -12px rgba(100, 240, 223, 0.5);
+}
+
+.error-btn.primary-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        105deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        transparent 100%
+    );
+    transform: skewX(-20deg);
+    transition: left .7s ease;
+    pointer-events: none;
+}
+
+.error-btn.primary-btn:hover::before {
+    left: 200%;
+}
+
+.error-btn.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        0 8px 0 #1c3f7a,
+        0 24px 38px -12px rgba(100, 240, 223, 0.65);
+}
+
+.error-btn.primary-btn:active {
+    transform: translateY(4px);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        0 1px 0 #1c3f7a,
+        0 6px 14px -6px rgba(100, 240, 223, 0.4);
+}
+
+
+/* Secondary Button */
+.error-btn.secondary-btn {
+    color: #eef1ff;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(100, 240, 223, 0.5);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 4px 0 rgba(255, 255, 255, 0.08);
+}
+
+.error-btn.secondary-btn:hover {
+    color: #3de9d8;
+    transform: translateY(-3px);
+    border-color: #3de9d8;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        0 7px 0 rgba(255, 255, 255, 0.08),
+        0 16px 28px -12px rgba(100, 240, 223, 0.4);
+}
+
+.error-btn.secondary-btn:active {
+    transform: translateY(3px);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+
+/* ============================================================
+   LIGHT THEME SUPPORT
+============================================================ */
+
+body.light-theme .error-title {
+    color: #0b1630;
+}
+
+body.light-theme .error-text {
+    color: #586383;
+}
+
+body.light-theme .error-btn.secondary-btn {
+    color: #0b1630;
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(10, 143, 176, 0.5);
+}
+
+body.light-theme .error-btn.secondary-btn:hover {
+    color: #0891b2;
+    border-color: #0891b2;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 640px) {
+
+    .error-page {
+        padding: 40px 5%;
+    }
+
+    .error-code {
+        letter-spacing: -6px;
+        margin-bottom: 12px;
+    }
+
+    .error-text {
+        font-size: 14px;
+        margin-bottom: 32px;
+    }
+
+    .error-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .error-btn {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .error-code {
+        letter-spacing: -4px;
+    }
+
+    .error-title {
+        letter-spacing: -1px;
+    }
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .error-page::before,
+    .error-code,
+    .error-content {
+        animation: none !important;
+    }
+}
+
+</style>
+
+</head>
+<body>
+
+<main class="error-page">
+
+    <div class="error-content">
+
+        <div class="error-code">
+            404
+        </div>
+
+        <h1 class="error-title">
+            Page Not Found
+        </h1>
+
+        <p class="error-text">
+            Sorry, the page you're looking for doesn't exist or has been moved.
+        </p>
+
+        <div class="error-actions">
+
+            <a href="/" class="error-btn primary-btn">
+                ← Go Home
+            </a>
+
+            <a href="/contact" class="error-btn secondary-btn">
+                Contact Us
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+</html>

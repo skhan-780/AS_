@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Admin Dashboard</title>
+
+<link rel="stylesheet" href="mycss1.css">
+<link rel="stylesheet" href="Web.css">
+
+</head>
+
+<body>
+
+<div id="adminLogin">
+
+<h2>Admin Login</h2>
+
+<input
+    type="text"
+    id="adminUsername"
+    placeholder="Username"
+>
+
+<input
+    type="password"
+    id="adminPassword"
+    placeholder="Password"
+>
+
+<button id="adminLoginBtn">
+    Login
+</button>
+
+</div>
+
+<div
+    id="adminDashboard"
+    style="display:none;"
+>
+
+<h2>Admin Dashboard</h2>
+
+
+<button id="addProductBtn">
+    Add Product
+</button>
+
+<button id="manageProductsBtn">
+    Manage Products
+</button>
+
+<button id="addWorkBtn">
+    Add Work
+</button>
+
+<button id="manageWorkBtn">
+    Manage Work
+</button>
+
+<button id="addResourceBtn">
+    Add Project Resource
+</button>
+
+<button id="manageResourcesBtn">
+    Manage Project Resources
+</button>
+
+
+<div
+    id="productForm"
+    style="display:none;"
+>
+
+    <h2>Add Product</h2>
+
+    <input
+        type="text"
+        id="productName"
+        placeholder="Product Name"
+    >
+
+    <textarea
+        id="productDescription"
+        placeholder="Description"
+    ></textarea>
+
+    <input
+        type="number"
+        id="productPrice"
+        placeholder="Price"
+    >
+
+    <input
+        type="text"
+        id="productCategory"
+        placeholder="Category"
+    >
+
+    <input
+        type="file"
+        id="productFile"
+    >
+
+    <button id="saveProductBtn">
+        Save Product
+    </button>
+
+</div>
+
+
+<div
+    id="workForm"
+    style="display:none;"
+>
+
+    <h2>Add Work</h2>
+
+    <input
+        type="text"
+        id="workName"
+        placeholder="Work Name"
+    >
+
+    <textarea
+        id="workDescription"
+        placeholder="Description"
+    ></textarea>
+
+    <input
+        type="text"
+        id="workCategory"
+        placeholder="Category"
+    >
+
+    <input
+        type="file"
+        id="workFile"
+    >
+
+    <button id="saveWorkBtn">
+        Save Work
+    </button>
+
+</div>
+
+
+<div
+    id="editProductForm"
+    style="display:none;"
+>
+
+    <h2>Edit Product</h2>
+
+    <input
+        type="hidden"
+        id="editProductId"
+    >
+
+    <input
+        type="text"
+        id="editProductName"
+        placeholder="Product Name"
+    >
+
+    <textarea
+        id="editProductDescription"
+        placeholder="Description"
+    ></textarea>
+
+    <input
+        type="number"
+        id="editProductPrice"
+        placeholder="Price"
+    >
+
+    <input
+        type="text"
+        id="editProductCategory"
+        placeholder="Category"
+    >
+
+    <button id="updateProductBtn">
+        Update Product
+    </button>
+
+</div>
+
+
+<div id="productsList"></div>
+
+
+<div id="workList"></div>
+
+
+<div
+    id="editWorkForm"
+    style="display:none;"
+>
+
+    <h2>Edit Work</h2>
+
+    <input
+        type="hidden"
+        id="editWorkId"
+    >
+
+    <input
+        type="text"
+        id="editWorkName"
+        placeholder="Work Name"
+    >
+
+    <textarea
+        id="editWorkDescription"
+        placeholder="Description"
+    ></textarea>
+
+    <input
+        type="text"
+        id="editWorkCategory"
+        placeholder="Category"
+    >
+
+    <button id="updateWorkBtn">
+        Update Work
+    </button>
+
+</div>
+
+
+<div
+    id="resourceForm"
+    style="display:none;"
+>
+
+    <h2>Add Project Resource</h2>
+
+    <input
+        type="text"
+        id="resourceProjectName"
+        placeholder="Project Name"
+    >
+
+    <textarea
+        id="resourceDescription"
+        placeholder="Project Description"
+    ></textarea>
+
+    <input
+        type="text"
+        id="resourceFileName"
+        placeholder="Resource/File Name"
+    >
+
+    <input
+        type="file"
+        id="resourceFile"
+    >
+
+    <select id="resourceAccess">
+
+        <option value="free">
+            Free
+        </option>
+
+        <option value="paid">
+            Paid
+        </option>
+
+    </select>
+
+    <input
+        type="number"
+        id="resourcePrice"
+        placeholder="Price"
+        min="0"
+        value="0"
+    >
+
+    <button id="saveResourceBtn">
+        Save Project Resource
+    </button>
+
+</div>
+
+
+<div id="resourcesList"></div>
+
+</div>
+
+<script src="Admin.js"></script>
+</body>
+</html>

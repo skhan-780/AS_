@@ -1,0 +1,483 @@
+# ============================================================
+# 1. DEFAULT — ALLOW PUBLIC PAGES
+# ============================================================
+
+User-agent: *
+Allow: /
+
+# ────────────────────────────────────────────────────────────
+# PUBLIC PAGES — Explicitly Allowed (Google ko clear signal)
+# ────────────────────────────────────────────────────────────
+
+Allow: /Web.html
+Allow: /contact.html
+Allow: /404.html
+
+# ────────────────────────────────────────────────────────────
+# PUBLIC ASSETS — CSS, JS, Images
+# ────────────────────────────────────────────────────────────
+
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /*.ico$
+Allow: /images/
+Allow: /uploads/
+
+# ────────────────────────────────────────────────────────────
+# SEO FILES
+# ────────────────────────────────────────────────────────────
+
+Allow: /robots.txt
+Allow: /sitemap.xml
+Allow: /favicon.ico
+
+# ────────────────────────────────────────────────────────────
+# BLOCK — API ENDPOINTS
+# ────────────────────────────────────────────────────────────
+
+Disallow: /api/
+
+# ────────────────────────────────────────────────────────────
+# BLOCK — QUERY STRING LEAKS
+# ────────────────────────────────────────────────────────────
+
+Disallow: /*?token=
+Disallow: /*?reset=
+Disallow: /*?password=
+Disallow: /*?key=
+Disallow: /*?secret=
+
+# ────────────────────────────────────────────────────────────
+# BLOCK — BACKUP & DUMP FILES (Common — no hints)
+# ────────────────────────────────────────────────────────────
+
+Disallow: /*.bak$
+Disallow: /*.backup$
+Disallow: /*.old$
+Disallow: /*.orig$
+Disallow: /*.sql$
+Disallow: /*.sql.gz$
+Disallow: /*.tar$
+Disallow: /*.tar.gz$
+Disallow: /*.rar$
+Disallow: /*.7z$
+Disallow: /*.log$
+
+# ────────────────────────────────────────────────────────────
+# BLOCK — CMS VULNERABILITY PATHS (Common — no hints)
+# ────────────────────────────────────────────────────────────
+
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /xmlrpc.php
+Disallow: /phpmyadmin/
+Disallow: /cgi-bin/
+
+# ────────────────────────────────────────────────────────────
+# CRAWL DELAY
+# ────────────────────────────────────────────────────────────
+
+Crawl-delay: 1
+
+
+# ============================================================
+# 2. EXPLICITLY ALLOW MAJOR SEARCH ENGINES
+# ============================================================
+
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /api/
+Crawl-delay: 1
+
+User-agent: Googlebot-Mobile
+Allow: /
+Disallow: /api/
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Disallow: /api/
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /api/
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Disallow: /api/
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Disallow: /api/
+Crawl-delay: 2
+
+User-agent: Yahoo
+Allow: /
+Disallow: /api/
+Crawl-delay: 1
+
+User-agent: Applebot
+Allow: /
+Disallow: /api/
+Crawl-delay: 1
+
+User-agent: Sogou
+Allow: /
+Disallow: /api/
+Crawl-delay: 2
+
+
+# ============================================================
+# 3. SOCIAL MEDIA PREVIEW BOTS (WhatsApp/FB/Twitter previews)
+# ============================================================
+
+User-agent: FacebookExternalHit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+User-agent: Pinterest
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+
+# ============================================================
+# 4. BLOCK SEO SPY TOOLS
+# ============================================================
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: SemrushBot-SA
+Disallow: /
+
+User-agent: SemrushBot-BA
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: SeznamBot
+Disallow: /
+
+User-agent: SerpstatBot
+Disallow: /
+
+User-agent: SpyFu
+Disallow: /
+
+User-agent: MegaIndex.ru
+Disallow: /
+
+User-agent: Sistrix
+Disallow: /
+
+User-agent: Lipperhey
+Disallow: /
+
+User-agent: OpenLinkProfiler
+Disallow: /
+
+User-agent: BacklinkCrawler
+Disallow: /
+
+User-agent: Linkdex
+Disallow: /
+
+User-agent: Majestic
+Disallow: /
+
+User-agent: WebMeUp
+Disallow: /
+
+User-agent: CognitiveSEO
+Disallow: /
+
+User-agent: SEOkicks
+Disallow: /
+
+
+# ============================================================
+# 5. BLOCK AI CRAWLERS (Content Protection)
+# ============================================================
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: YouBot
+Disallow: /
+
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: Omgili
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Timpibot
+Disallow: /
+
+User-agent: Webzio-Extended
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: Meta-ExternalFetcher
+Disallow: /
+
+User-agent: DuckAssistBot
+Disallow: /
+
+
+# ============================================================
+# 6. BLOCK SCRAPERS & DOWNLOADERS
+# ============================================================
+
+User-agent: HTTrack
+Disallow: /
+
+User-agent: WebCopier
+Disallow: /
+
+User-agent: WebZIP
+Disallow: /
+
+User-agent: Teleport
+Disallow: /
+
+User-agent: GetRight
+Disallow: /
+
+User-agent: NetAnts
+Disallow: /
+
+User-agent: Wget
+Disallow: /
+
+User-agent: Larbin
+Disallow: /
+
+User-agent: Nutch
+Disallow: /
+
+User-agent: WebStripper
+Disallow: /
+
+User-agent: SiteSnagger
+Disallow: /
+
+User-agent: Offline Explorer
+Disallow: /
+
+User-agent: PageGrabber
+Disallow: /
+
+User-agent: Reaper
+Disallow: /
+
+
+# ============================================================
+# 7. BLOCK VULNERABILITY SCANNERS
+# ============================================================
+
+User-agent: Nikto
+Disallow: /
+
+User-agent: Nmap
+Disallow: /
+
+User-agent: SQLMap
+Disallow: /
+
+User-agent: masscan
+Disallow: /
+
+User-agent: Nessus
+Disallow: /
+
+User-agent: OpenVAS
+Disallow: /
+
+User-agent: Qualys
+Disallow: /
+
+User-agent: Acunetix
+Disallow: /
+
+User-agent: Netsparker
+Disallow: /
+
+User-agent: W3AF
+Disallow: /
+
+User-agent: DirBuster
+Disallow: /
+
+User-agent: Gobuster
+Disallow: /
+
+User-agent: FFUF
+Disallow: /
+
+User-agent: Hydra
+Disallow: /
+
+User-agent: ZAP
+Disallow: /
+
+User-agent: Burp
+Disallow: /
+
+User-agent: wpscan
+Disallow: /
+
+User-agent: Havij
+Disallow: /
+
+User-agent: zgrab
+Disallow: /
+
+User-agent: l9explore
+Disallow: /
+
+User-agent: SafeDNSBot
+Disallow: /
+
+
+# ============================================================
+# 8. BLOCK EMAIL HARVESTERS
+# ============================================================
+
+User-agent: EmailCollector
+Disallow: /
+
+User-agent: EmailSiphon
+Disallow: /
+
+User-agent: EmailWolf
+Disallow: /
+
+User-agent: EmailHarvest
+Disallow: /
+
+User-agent: EmailMagnet
+Disallow: /
+
+User-agent: EmailSearch
+Disallow: /
+
+User-agent: ExtractorPro
+Disallow: /
+
+User-agent: CherryPicker
+Disallow: /
+
+User-agent: WebBandit
+Disallow: /
+
+User-agent: Crescent
+Disallow: /
+
+User-agent: Harvey
+Disallow: /
+
+User-agent: Nichrome
+Disallow: /
+
+
+# ============================================================
+# 9. SITEMAP
+# ============================================================
+
+Sitemap: https://asstudio.com/sitemap.xml
+
+
+# ============================================================
+# END OF ROBOTS.TXT
+# ============================================================

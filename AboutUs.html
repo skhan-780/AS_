@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | AS Studio</title>
+
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    background: #050509;
+    color: #e6e6e6;
+    min-height: 100vh;
+    padding: 70px 20px;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* ===== BACKGROUND ===== */
+  .bg-3d {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .bg-3d::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(0, 90, 255, 0.08), transparent 45%),
+      radial-gradient(circle at 80% 70%, rgba(0, 140, 255, 0.06), transparent 45%);
+  }
+
+  .ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(30, 144, 255, 0.18);
+    animation: spin 60s linear infinite;
+  }
+
+  .ring.r1 { width: 380px; height: 380px; top: -110px; left: -110px; border-style: dashed; }
+  .ring.r2 { width: 260px; height: 260px; bottom: -70px; right: -70px; animation-direction: reverse; animation-duration: 70s; }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  .diamond {
+    position: absolute;
+    width: 40px; height: 40px;
+    background: rgba(30, 144, 255, 0.08);
+    border: 1px solid rgba(30, 144, 255, 0.25);
+    transform: rotate(45deg);
+    animation: floatDiamond 14s ease-in-out infinite;
+    opacity: 0.6;
+  }
+
+  .diamond.d1 { top: 18%; left: 10%; }
+  .diamond.d2 { top: 72%; left: 45%; animation-delay: 3s; width: 28px; height: 28px; }
+  .diamond.d3 { top: 32%; right: 10%; animation-delay: 6s; width: 50px; height: 50px; }
+
+  @keyframes floatDiamond {
+    0%, 100% { transform: translateY(0) rotate(45deg); }
+    50%      { transform: translateY(-12px) rotate(45deg); }
+  }
+
+  .particle {
+    position: absolute;
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: #4da6ff;
+    box-shadow: 0 0 6px rgba(30, 144, 255, 0.6);
+    animation: twinkle 7s ease-in-out infinite;
+    opacity: 0.4;
+  }
+
+  .particle.p1 { top: 12%; left: 30%; animation-delay: 0s; }
+  .particle.p2 { top: 25%; left: 75%; animation-delay: 1.2s; }
+  .particle.p3 { top: 55%; left: 15%; animation-delay: 2.4s; }
+  .particle.p4 { top: 78%; left: 55%; animation-delay: 3.6s; }
+  .particle.p5 { top: 40%; left: 88%; animation-delay: 4.8s; }
+  .particle.p6 { top: 85%; left: 20%; animation-delay: 6s; }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.15; transform: scale(1); }
+    50%      { opacity: 0.6;  transform: scale(1.4); }
+  }
+
+  .wave-line {
+    position: absolute;
+    width: 100%; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(30, 144, 255, 0.20), transparent);
+    opacity: 0.4;
+  }
+  .wave-line.w1 { top: 35%; }
+  .wave-line.w2 { top: 62%; }
+  .wave-line.w3 { top: 82%; opacity: 0.25; }
+
+  /* ===== CONTAINER ===== */
+  .container {
+    max-width: 1050px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 5rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .header h1 span { color: #1e90ff; }
+
+  .header p {
+    font-family: 'Poppins', sans-serif;
+    color: #9aa4b2;
+    margin-top: 22px;
+    letter-spacing: 5px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  /* ===== INTRO ===== */
+  .intro {
+    position: relative;
+    padding: 60px 50px 55px;
+    margin-bottom: 60px;
+    background: linear-gradient(160deg, #0d0d16 0%, #0a0a12 100%);
+    border: 1px solid rgba(30, 144, 255, 0.22);
+    border-radius: 22px;
+    overflow: hidden;
+  }
+
+  .intro::before,
+  .intro::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #1e90ff;
+    opacity: 0.7;
+  }
+
+  .intro::before {
+    top: 14px; left: 14px;
+    border-right: none;
+    border-bottom: none;
+    border-top-left-radius: 10px;
+  }
+
+  .intro::after {
+    bottom: 14px; right: 14px;
+    border-left: none;
+    border-top: none;
+    border-bottom-right-radius: 10px;
+  }
+
+  .intro .quote-mark {
+    position: absolute;
+    top: 10px; left: 40px;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    font-weight: 600;
+    color: #1e90ff;
+    opacity: 0.18;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .intro .tag {
+    position: relative;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #1e90ff;
+    padding: 6px 16px;
+    border: 1px solid rgba(30, 144, 255, 0.4);
+    border-radius: 50px;
+    margin-bottom: 26px;
+    background: rgba(30, 144, 255, 0.06);
+  }
+
+  .intro .tag::before {
+    content: "•";
+    margin-right: 8px;
+    color: #1e90ff;
+  }
+
+  .intro p {
+    position: relative;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #cfd6e0;
+    max-width: 780px;
+  }
+
+  .intro .signature {
+    position: relative;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .intro .signature .bar {
+    width: 40px;
+    height: 2px;
+    background: #1e90ff;
+  }
+
+  .intro .signature .name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+
+  .intro .signature .name span { color: #1e90ff; }
+
+  /* ===== MORE / LESS TOGGLE ===== */
+  .intro .desc-wrapper {
+    position: relative;
+    max-width: 780px;
+  }
+
+  .intro .more-toggle {
+    display: none;
+  }
+
+  /* PC view: 1000 characters (approx 11-12 lines at this font size) */
+  .intro .desc-wrapper .desc-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 12;      /* PC: ~1000 characters */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .intro .more-toggle:checked ~ .desc-text {
+    -webkit-line-clamp: unset;
+    display: block;
+    overflow: visible;
+  }
+
+  .intro .desc-wrapper .desc-text::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50px;
+    background: linear-gradient(to bottom, transparent, #0b0b13);
+    pointer-events: none;
+  }
+
+  .intro .more-toggle:checked ~ .desc-text::after {
+    display: none;
+  }
+
+  .intro .more-btn {
+    display: inline-block;
+    margin-top: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #1e90ff;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(30, 144, 255, 0.4);
+    padding-bottom: 2px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    user-select: none;
+  }
+
+  .intro .more-btn:hover {
+    color: #4da6ff;
+    border-color: #4da6ff;
+  }
+
+  .intro .more-btn .less-text { display: none; }
+  .intro .more-btn .more-text { display: inline; }
+
+  .intro .more-toggle:checked ~ .more-btn .less-text { display: inline; }
+  .intro .more-toggle:checked ~ .more-btn .more-text { display: none; }
+
+  /* ===== PROFILE CARD ===== */
+  .profile {
+    display: flex;
+    gap: 40px;
+    align-items: stretch;
+    margin-bottom: 50px;
+    background: linear-gradient(160deg, #101018, #0b0b12);
+    border: 1px solid rgba(30, 144, 255, 0.15);
+    border-radius: 20px;
+    padding: 30px;
+  }
+
+  .profile.reverse { flex-direction: row-reverse; }
+
+  .profile .photo-box {
+    flex: 0 0 240px;
+    height: 320px;
+    border-radius: 14px;
+    border: 2px solid #1e90ff;
+    background: #05050a;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 1s ease, box-shadow 1s ease, border-color 1s ease;
+  }
+
+  .profile .photo-box:hover {
+    transform: translateY(-8px) scale(1.03);
+    border-color: #4da6ff;
+    box-shadow: 0 15px 35px rgba(30, 144, 255, 0.20);
+  }
+
+  .profile .photo-box img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .profile .photo-box .placeholder {
+    color: #2f3b4d;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-align: center;
+    line-height: 1.8;
+  }
+
+  .profile .details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 10px;
+  }
+
+  .profile .details h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-size: 2.6rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+
+  .profile .details .role {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    color: #1e90ff;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .profile .details .line {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #1e90ff, transparent);
+    margin-bottom: 18px;
+  }
+
+  .profile .details p {
+    color: #9aa4b2;
+    font-size: 0.92rem;
+    line-height: 1.8;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    margin-top: 70px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(30, 144, 255, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .footer .brand {
+    font-family: 'Montserrat', sans-serif;
+    color: #1e90ff;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .footer .rights {
+    font-family: 'Poppins', sans-serif;
+    color: #5f6b7a;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    body { padding: 50px 16px; }
+    .header h1 { font-size: 3.5rem; letter-spacing: 3px; }
+    .profile { gap: 28px; padding: 24px; }
+    .profile .photo-box { flex: 0 0 200px; height: 270px; }
+    .profile .details h3 { font-size: 2.1rem; }
+
+    .intro { padding: 50px 38px 45px; }
+    .intro p { font-size: 1.1rem; }
+    .intro .quote-mark { font-size: 6.5rem; left: 30px; }
+
+    /* Tablet */
+    .intro .desc-wrapper .desc-text {
+      -webkit-line-clamp: 10;
+    }
+  }
+
+  @media (max-width: 650px) {
+    body { padding: 40px 14px; }
+
+    .header { margin-bottom: 40px; }
+    .header h1 { font-size: 2.6rem; letter-spacing: 2px; }
+    .header p { font-size: 0.65rem; letter-spacing: 3px; margin-top: 14px; }
+
+    .intro {
+      padding: 45px 24px 38px;
+      margin-bottom: 35px;
+      border-radius: 16px;
+    }
+
+    .intro::before,
+    .intro::after {
+      width: 28px;
+      height: 28px;
+    }
+
+    .intro::before { top: 10px; left: 10px; }
+    .intro::after { bottom: 10px; right: 10px; }
+
+    .intro .quote-mark {
+      font-size: 5rem;
+      top: 6px;
+      left: 18px;
+    }
+
+    .intro .tag {
+      font-size: 0.6rem;
+      letter-spacing: 3px;
+      padding: 5px 14px;
+      margin-bottom: 20px;
+    }
+
+    .intro p {
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    /* Mobile: 8 lines (same as before) */
+    .intro .desc-wrapper .desc-text {
+      -webkit-line-clamp: 8;
+    }
+
+    .intro .signature {
+      margin-top: 24px;
+      gap: 10px;
+    }
+
+    .intro .signature .name {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+    }
+
+    .profile,
+    .profile.reverse {
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 20px;
+      gap: 20px;
+      border-radius: 16px;
+      margin-bottom: 30px;
+    }
+
+    .profile .photo-box {
+      flex: none;
+      width: 200px;
+      height: 270px;
+      border-radius: 16px;
+    }
+
+    .profile .details {
+      padding-top: 0;
+      text-align: center;
+      align-items: center;
+    }
+
+    .profile .details h3 { font-size: 1.9rem; letter-spacing: 1.5px; }
+    .profile .details .role { font-size: 0.72rem; letter-spacing: 2px; }
+
+    .profile .details .line {
+      margin-left: auto;
+      margin-right: auto;
+      background: linear-gradient(90deg, transparent, #1e90ff, transparent);
+    }
+
+    .profile .details p { font-size: 0.88rem; }
+
+    .footer {
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+      margin-top: 45px;
+      padding-top: 22px;
+    }
+
+    .footer .brand { font-size: 0.75rem; letter-spacing: 3px; }
+    .footer .rights { font-size: 0.68rem; letter-spacing: 1.5px; }
+
+    .diamond.d3 { display: none; }
+    .ring.r2 { display: none; }
+  }
+
+  @media (max-width: 400px) {
+    .header h1 { font-size: 2.1rem; letter-spacing: 1.5px; }
+
+    .profile .photo-box { width: 180px; height: 240px; }
+    .profile .details h3 { font-size: 1.65rem; }
+
+    .intro { padding: 40px 20px 34px; }
+    .intro p { font-size: 0.95rem; }
+    .intro .quote-mark { font-size: 4rem; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== BACKGROUND ===== -->
+  <div class="bg-3d">
+    <div class="ring r1"></div>
+    <div class="ring r2"></div>
+
+    <div class="diamond d1"></div>
+    <div class="diamond d2"></div>
+    <div class="diamond d3"></div>
+
+    <div class="particle p1"></div>
+    <div class="particle p2"></div>
+    <div class="particle p3"></div>
+    <div class="particle p4"></div>
+    <div class="particle p5"></div>
+    <div class="particle p6"></div>
+
+    <div class="wave-line w1"></div>
+    <div class="wave-line w2"></div>
+    <div class="wave-line w3"></div>
+  </div>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+      <h1>ABOUT <span>US</span></h1>
+      <p>Two Friends • One Vision • Creative Excellence</p>
+    </div>
+
+    <!-- INTRO with More/Less -->
+    <div class="intro">
+      <span class="quote-mark">“</span>
+
+      <div class="tag">Introduction</div>
+
+      <div class="desc-wrapper">
+        <input type="checkbox" id="introToggle" class="more-toggle">
+
+        <p class="desc-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+          irure dolor in reprehenderit in voluptate velit esse cillum dolore. Lorem ipsum
+          dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore. Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua.
+        </p>
+
+        <label for="introToggle" class="more-btn">
+          <span class="more-text">More</span>
+          <span class="less-text">Less</span>
+        </label>
+      </div>
+
+      <div class="signature">
+        <span class="bar"></span>
+        <span class="name"><span>AS</span> Studio</span>
+      </div>
+    </div>
+
+    <!-- SOHAIL -->
+    <div class="profile">
+      <div class="photo-box">
+        <!-- <img src="sohail.jpg" alt="Sohail"> -->
+        <span class="placeholder">FULL PHOTO<br>YAHAN LAGAYEN</span>
+      </div>
+      <div class="details">
+        <h3>Sohail</h3>
+        <span class="role">Web Developer</span>
+        <div class="line"></div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+        </p>
+      </div>
+    </div>
+
+    <!-- ABSAR -->
+    <div class="profile reverse">
+      <div class="photo-box">
+        <!-- <img src="absar.jpg" alt="Absar"> -->
+        <span class="placeholder">FULL PHOTO<br>YAHAN LAGAYEN</span>
+      </div>
+      <div class="details">
+        <h3>Absar</h3>
+        <span class="role">Graphic Designer & Video Editor</span>
+        <div class="line"></div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+        </p>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="brand">AS STUDIO</div>
+      <div class="rights">© 2025 — ALL RIGHTS RESERVED</div>
+    </div>
+
+  </div>
+
+</body>
+</html>

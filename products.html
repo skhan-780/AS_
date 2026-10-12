@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Resource Hub</title>
+<link
+    rel="icon"
+    type="image/png"
+    href="images/favicon-512.png">
+
+<link
+    rel="apple-touch-icon"
+    href="images/favicon-512.png">
+
+    
+
+  <link rel="stylesheet" href="mycss1.css">
+  <link rel="stylesheet" href="Web.css">
+
+
+</head>
+
+<body>
+
+
+
+
+
+<!-- Existing content -->
+    <button
+    id="themeToggle"
+    class="theme-toggle"
+    aria-label="Toggle theme"
+    title="Toggle Light / Dark Mode">
+    <span class="theme-icon sun">☀</span>
+    <span class="theme-icon moon">☾</span>
+</button>
+
+<main class="products-page">
+
+<!-- ===================================================== HERO ====================================================== -->
+
+<section class="resource-hero">
+
+
+
+<div class="resource-hero-content">
+
+    <div class="hero-badge">
+        <span></span>
+        ⚡ PREMIUM RESOURCE HUB
+    </div>
+
+    <h1>
+        Elevate Your Skills.
+        <strong>Craft Your Future.</strong>
+        Build Something Extraordinary.
+    </h1>
+    
+
+    <p>
+        Unlock premium resources designed for ambitious creators. From 
+advanced programming materials to professional design assets and 
+production-ready projects everything you need to build 
+extraordinary things..
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="#resources" class="hero-primary">
+            Explore Resources
+            <span>↗</span>
+        </a>
+
+        <a href="#projects" class="hero-secondary">
+            View Our Work
+        </a>
+
+    </div>
+
+    <div class="hero-stats">
+        <div>
+            <strong>Premium</strong>
+            <span>Resources</span>
+        </div>
+
+        <div>
+            <strong>Verified</strong>
+            <span>Files</span>
+        </div>
+
+        <div>
+            <strong>Instant</strong>
+            <span>Access</span>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- 3D VISUAL -->
+
+<div class="hero-visual">
+
+    <div class="orbit orbit-one"></div>
+    <div class="orbit orbit-two"></div>
+    <div class="orbit orbit-three"></div>
+
+    <div class="resource-core">
+
+        <div class="core-inner">
+            <span>AS</span>
+            <small>STUDIO</small>
+        </div>
+
+    </div>
+
+    <div class="floating-tech tech-html">
+    Expert Code
+</div>
+
+<div class="floating-tech tech-css">
+    Pro Design
+</div>
+
+<div class="floating-tech tech-js">
+    Real Projects
+</div>
+
+<div class="floating-tech tech-ai">
+    Premium Files
+</div>
+
+</section>
+
+<!-- ===================================================== RESOURCE AREA ====================================================== -->
+
+<section class="resource-area" id="resources">
+
+<div class="resource-heading">
+
+    <div>
+        <span class="section-kicker">
+            PREMIUM LIBRARY
+        </span>
+
+        <h2>
+            Everything You Need.
+            <span>Built For Creators.</span>
+        </h2>
+
+        <p>
+            Access expert-crafted programming resources, professional design 
+assets, production-ready projects, and premium files all curated 
+by AS Studio.
+        </p>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="resource-search">
+    <span>⌕</span>
+    <input
+        type="text"
+        id="resourceSearch"
+        placeholder="Search products, work, resources..."
+        autocomplete="off"
+        aria-label="Search"
+        aria-autocomplete="list"
+        aria-controls="searchSuggestions"
+    >
+    <div id="searchSuggestions" class="search-suggestions" role="listbox"></div>
+</div>
+
+</div>
+
+
+<!-- =================================================
+     CATEGORIES
+================================================== -->
+
+<div class="resource-categories">
+
+    <button
+        type="button"
+        class="category-pill category-btn active"
+        data-category="all"
+    >
+        All Resources
+    </button>
+
+    <button
+        type="button"
+        class="category-pill category-btn"
+        data-category="Web Development"
+    >
+        Web Development
+    </button>
+
+    <button
+        type="button"
+        class="category-pill category-btn"
+        data-category="Programming"
+    >
+        Programming
+    </button>
+
+    <button
+        type="button"
+        class="category-pill category-btn"
+        data-category="Design"
+    >
+        Design
+    </button>
+
+    <button
+        type="button"
+        class="category-pill category-btn"
+        data-category="AI"
+    >
+        AI
+    </button>
+
+    <button
+        type="button"
+        class="category-pill category-btn"
+        data-category="Video Editing"
+    >
+        Video Editing
+    </button>
+
+    <button
+        type="button"
+        class="category-pill category-btn"
+        data-category="PDF"
+    >
+        PDFs
+    </button>
+
+    <button
+        type="button"
+        class="category-pill category-btn"
+        data-category="Projects"
+    >
+        Projects
+    </button>
+
+</div>
+
+
+<!-- =================================================
+     TECHNOLOGY STRIP
+================================================== -->
+
+<div class="technology-strip">
+
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+    <span>React</span>
+    <span>Node.js</span>
+    <span>Express.js</span>
+    <span>MongoDB</span>
+    <span>Python</span>
+    <span>C++</span>
+    <!-- <span>AI</span> -->
+    <!-- <span>Graphic Designing</span> -->
+    <span>Video Editing</span>
+
+</div>
+
+
+<!-- =================================================
+     RESOURCE GRID
+================================================== -->
+
+<section
+    class="resource-grid"
+    id="dynamicProducts"
+></section>
+
+</section>
+
+<!-- ===================================================== PROJECT SHOWCASE ====================================================== -->
+
+<section class="projects-area" id="projects">
+
+<div class="projects-bg"></div>
+
+<div class="projects-heading">
+
+    <div>
+
+        <span class="section-kicker">
+            SELECTED WORK
+        </span>
+
+        <h2>
+           Where Vision
+            <span>Meets Execution.</span>
+        </h2>
+
+        <p>
+            Real projects. Real code. Real impact. Discover the professional 
+work, creative experiments, and production-ready projects built 
+by AS Studio where quality meets execution.
+        </p>
+
+    </div>
+
+    <div class="projects-line"></div>
+
+</div>
+
+
+<section
+    class="projects-grid"
+    id="dynamicWork"
+></section>
+
+</section>
+
+<!-- ===================================================== PROJECT RESOURCES ====================================================== -->
+
+<section class="resource-files-area" id="resources-files">
+
+<div class="resource-files-bg"></div>
+
+<div class="resource-files-heading">
+
+    <div>
+
+        <span class="section-kicker">
+            PROJECT RESOURCES
+        </span>
+
+        <h2>
+            Premium Resources.
+            <span>Built For Creators.</span>
+        </h2>
+
+        <p>
+            Real files. Real quality. Real value. Access premium project files, 
+advanced programming materials, and professional resources,  
+everything you need to build something extraordinary.
+        </p>
+
+    </div>
+
+    <div class="resource-files-line"></div>
+
+</div>
+
+
+<!-- =================================================
+     DYNAMIC RESOURCES
+================================================== -->
+
+<section
+    class="resource-files-grid"
+    id="dynamicResources"
+></section>
+
+</section>
+
+<!-- ===================================================== BOTTOM CTA ====================================================== -->
+
+<section class="resource-cta">
+
+<div class="cta-glow"></div>
+
+<div class="cta-content">
+
+    <span class="section-kicker">
+        KEEP BUILDING
+    </span>
+
+    <h2>
+       Turn Ideas Into Reality.
+Start Building Today.
+    </h2>
+
+    <p>
+       Real resources. Real skills. Real results. Discover everything 
+you need to build your next big project and turn your ideas 
+into something that actually matters.
+    </p>
+
+    <a
+        href="#resources"
+        class="cta-button"
+    >
+        Explore Library
+        <span>→</span>
+    </a>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- ========================================================= FILE PREVIEW MODAL ========================================================= -->
+
+<div id="filePreviewModal" class="preview-modal">
+
+<div class="preview-box">
+
+    <div class="preview-header">
+
+        <h2 id="previewTitle">
+            Preview
+        </h2>
+
+        <button
+            type="button"
+            class="preview-close"
+            id="closeFilePreviewBtn"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="preview-content">
+
+        <!-- IMAGE -->
+
+        <img
+            id="previewImage"
+            class="preview-image"
+            alt="Resource Preview"
+        >
+
+
+
+        <!-- PDF -->
+
+        <iframe
+            id="previewPdf"
+            class="preview-pdf"
+            title="PDF Preview"
+        ></iframe>
+
+
+        <!-- OTHER FILE -->
+
+        <div
+            id="previewFallback"
+            class="preview-fallback"
+        >
+
+            <div class="preview-fallback-icon">
+                
+            </div>
+
+            <p>
+                📄 This file type cannot be previewed directly.
+            </p>
+
+        </div>
+
+
+        <!-- DESCRIPTION -->
+
+        <div
+            id="previewDescription"
+            class="preview-description"
+        ></div>
+
+
+        <!-- OPEN / DOWNLOAD -->
+
+        <a
+            id="previewOpenLink"
+            class="preview-open-link"
+            href="#"
+           download
+        >
+            Download Resource →
+        </a>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- ========================================================= WORK REQUEST MODAL ========================================================= -->
+
+<div id="workRequestModal" class="preview-modal" style="display:none;">
+
+<div class="preview-box">
+
+    <div class="preview-header">
+
+        <h2>
+            Request This Work
+        </h2>
+
+        <button
+            type="button"
+            class="preview-close"
+            id="closeWorkRequestBtn"
+        >
+            ×
+        </button>
+
+    </div>
+
+    <div class="preview-content">
+
+        <form id="workRequestForm">
+
+            <input
+                type="text"
+                id="requestName"
+                placeholder="Your Name"
+                required
+            >
+
+            <input
+                type="email"
+                id="requestEmail"
+                placeholder="Your Email"
+                required
+            >
+
+            <input
+                type="text"
+                id="requestWork"
+                placeholder="Selected Work"
+                readonly
+            >
+
+            <textarea
+                id="requestMessage"
+                placeholder="Tell us about your requirements..."
+                rows="6"
+                required
+            ></textarea>
+
+                       <div class="request-btn-group">
+
+                <button
+                    type="submit"
+                    class="request-work-btn email-btn"
+                >
+                    📧 Send via Email
+                </button>
+
+                <button
+                    type="button"
+                    class="request-work-btn whatsapp-btn"
+                    id="sendWhatsAppBtn"
+                >
+                    💬 Send via WhatsApp
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</div>
+
+<script src="common.js"></script>
+<script src="products.js"></script>
+</body>
+</html>
+
